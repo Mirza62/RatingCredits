@@ -8,8 +8,6 @@ namespace ArdalisRating
     {
         public RatingEngine Engine { get; set; }
 
-        public ConsoleLogger Logger => new ConsoleLogger();
-
         public Rater CreateRaterForPolicy(Policy policy, IRatingContext context)
         {
             return new RaterFactory().Create(policy, context);
@@ -38,11 +36,6 @@ namespace ArdalisRating
         public void Log(string message)
         {
             new ConsoleLogger().Log(message);
-        }
-
-        public void UpdateRating(decimal rating)
-        {
-            Engine.Rating = rating;
         }
     }
 }
